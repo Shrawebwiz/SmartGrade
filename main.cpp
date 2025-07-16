@@ -63,7 +63,7 @@ int main() {
                 break;
             }
             case 0: {
-                cout << "\n👋 Exiting SmartGrade. Have a productive day!\n";
+                cout << "\n👋 Exiting SmartGrade.Bye!\n";
                 return 0;
             }
             default:
