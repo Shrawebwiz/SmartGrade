@@ -7,12 +7,12 @@
 
 using namespace std;
 
-// Constructor
+
 FileManager::FileManager(string fname) {
     filename = fname;
 }
 
-// Add a new student record to the file
+
 void FileManager::addStudent(const Student& s) {
     ofstream file(filename, ios::app);
     if (file.is_open()) {
@@ -24,7 +24,7 @@ void FileManager::addStudent(const Student& s) {
     }
 }
 
-// View all student records from the file
+
 void FileManager::viewAllStudents() {
     vector<Student> students = loadAllStudents();
 
@@ -39,7 +39,7 @@ void FileManager::viewAllStudents() {
     }
 }
 
-// Search and display a student by roll number
+
 bool FileManager::searchStudent(int roll) {
     vector<Student> students = loadAllStudents();
     for (const auto& s : students) {
@@ -53,7 +53,7 @@ bool FileManager::searchStudent(int roll) {
     return false;
 }
 
-// Update student details by roll number
+
 void FileManager::updateStudent(int roll) {
     vector<Student> students = loadAllStudents();
     bool found = false;
@@ -64,7 +64,7 @@ void FileManager::updateStudent(int roll) {
             s.display();
 
             cout << "\nEnter new details:\n";
-            s.inputDetails(); // allow user to re-enter details
+            s.inputDetails(); 
 
             found = true;
             break;
@@ -79,7 +79,7 @@ void FileManager::updateStudent(int roll) {
     }
 }
 
-// Delete a student record by roll number
+
 void FileManager::deleteStudent(int roll) {
     vector<Student> students = loadAllStudents();
     bool found = false;
@@ -102,7 +102,7 @@ void FileManager::deleteStudent(int roll) {
     }
 }
 
-// Flag and display students below 40 marks
+
 void FileManager::flagPerformance() {
     vector<Student> students = loadAllStudents();
     bool found = false;
@@ -120,7 +120,7 @@ void FileManager::flagPerformance() {
     }
 }
 
-// Load all students from the file into a vector
+
 vector<Student> FileManager::loadAllStudents() {
     vector<Student> students;
     ifstream file(filename);
@@ -142,9 +142,9 @@ vector<Student> FileManager::loadAllStudents() {
     return students;
 }
 
-// Save all students back to the file
+
 void FileManager::saveAllStudents(const vector<Student>& students) {
-    ofstream file(filename, ios::trunc); // overwrite the file
+    ofstream file(filename, ios::trunc); 
     if (file.is_open()) {
         for (const auto& s : students) {
             file << s.toString() << endl;
