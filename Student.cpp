@@ -1,9 +1,9 @@
-// Student.cpp
+
 
 #include "Student.h"
-#include <sstream>   // for stringstream
+#include <sstream>  
 
-// Default Constructor
+
 Student::Student() {
     rollNumber = 0;
     name = "";
@@ -12,7 +12,7 @@ Student::Student() {
     grade = 'F';
 }
 
-// Parameterized Constructor
+
 Student::Student(int r, string n, string s, float m) {
     rollNumber = r;
     name = n;
@@ -21,11 +21,11 @@ Student::Student(int r, string n, string s, float m) {
     calculateGrade();
 }
 
-// Take user input
+
 void Student::inputDetails() {
     cout << "\nEnter Roll Number: ";
     cin >> rollNumber;
-    cin.ignore(); // clear input buffer
+    cin.ignore(); 
 
     cout << "Enter Name: ";
     getline(cin, name);
@@ -39,7 +39,7 @@ void Student::inputDetails() {
     calculateGrade();
 }
 
-// Calculate grade based on marks
+
 void Student::calculateGrade() {
     if (marks >= 90)
         grade = 'A';
@@ -55,7 +55,6 @@ void Student::calculateGrade() {
         grade = 'F';
 }
 
-// Display student details
 void Student::display() const {
     cout << "\n------------------------------------";
     cout << "\nRoll Number: " << rollNumber;
@@ -66,7 +65,7 @@ void Student::display() const {
     cout << "\n------------------------------------\n";
 }
 
-// Getters
+
 int Student::getRollNumber() const {
     return rollNumber;
 }
@@ -87,7 +86,7 @@ char Student::getGrade() const {
     return grade;
 }
 
-// Setters
+
 void Student::setName(string n) {
     name = n;
 }
@@ -98,17 +97,17 @@ void Student::setSubject(string s) {
 
 void Student::setMarks(float m) {
     marks = m;
-    calculateGrade();  // update grade when marks change
+    calculateGrade();  
 }
 
-// Serialize data for file saving
+
 string Student::toString() const {
     stringstream ss;
     ss << rollNumber << "," << name << "," << subject << "," << marks << "," << grade;
     return ss.str();
 }
 
-// Deserialize data from file string
+
 void Student::fromString(string data) {
     stringstream ss(data);
     string token;
